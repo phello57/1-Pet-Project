@@ -6,8 +6,8 @@ is_play_again = true
 
 game = Game.new(true)
 
-while game.start do
-
+while is_play_again do
+  is_play_again = game.start
 end
 
 

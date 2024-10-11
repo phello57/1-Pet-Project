@@ -24,13 +24,10 @@ class Game
 
   def start
     @settings.print_hello
-
     ask_complication
 
     chose_word
-
     start_round while @i_mistakes > 0 && !@is_victory
-
     return end_game
   end
 
@@ -44,7 +41,7 @@ class Game
     enter_val_from_user = gets.chomp
 
     unless set.include?(enter_val_from_user)
-      @settings.print_value_is_incorrect
+      @settings.print_value_is_uncorrect
       ask_complication
     end
 

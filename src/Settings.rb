@@ -2,6 +2,7 @@
 
 
 
+
 class Settings
 
   def initialize
@@ -12,29 +13,21 @@ class Settings
 
   def get_mode(mode)
     case mode
-      when "easy" then @s_mode_easy
-      when "medium" then @s_mode_medium
-      when "hard" then @s_mode_hard
+    when "easy" then @s_mode_easy
+    when "medium" then @s_mode_medium
+    when "hard" then @s_mode_hard
     end
   end
 
   def print_hello
-    puts
-    <<~TEXT
-       Приветствую! Суть игры в том, что бы отгадать слово.
-       Вы можете ошибиться 6 раз.
-       На каждом ходу вы должны ввести 1 русскую букву
-    TEXT
+    puts "Приветствую! Суть игры в том, что бы отгадать слово. \n Вы можете ошибиться 6 раз. \n На каждом ходу вы должны ввести 1 русскую букву"
   end
 
   def print_ask_complication
-    puts
-    <<~TEXT
-        Введите уровень сложности. Доступные значения: 
-         easy #{@s_mode_easy},
-         medium #{@s_mode_medium},
-         hard #{@s_mode_hard}"
-    TEXT
+    puts "Введите уровень сложности. Доступные значения: " +
+        " easy (#{@s_mode_easy})," +
+        " medium (#{@s_mode_medium})," +
+        " hard (#{@s_mode_hard})"
   end
 
   def print_user_get_mistake
