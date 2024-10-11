@@ -24,6 +24,7 @@ class Game
 
   def start
     @settings.print_hello
+
     ask_complication
 
     chose_word
@@ -46,6 +47,7 @@ class Game
       @settings.print_value_is_incorrect
       ask_complication
     end
+
     @s_complication = @settings.get_mode(enter_val_from_user)
   end
 
@@ -127,28 +129,21 @@ class Game
     @i_mistakes -= 1
     @settings.print_gallow(@i_mistakes)
     @settings.print_count_mistakes(@i_mistakes)
-
   end
 
 
   def check_whole_word_is_solved
-    unless @s_masked_word.include?("_")
-      @is_victory = true
-    end
+    return if @s_masked_word.include?("_")
+
+    @is_victory = true
   end
 
 
   def end_game
-    @settings.print_lose if @i_mistakes == 0
-    @settings.print_victory if @i_mistakes > 0
+    @settings.print_lose if @i_mistakes.zero?
+    @settings.print_victory if @i_mistakes.positive?
 
     @settings.print_ask_play
-    enter_user_play_again = gets.chomp
-
-    return true if enter_user_play_again == "1"
-    return false
+    gets.chomp == "1"
   end
-
-
-
 end

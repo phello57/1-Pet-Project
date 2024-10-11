@@ -2,7 +2,6 @@
 
 
 
-
 class Settings
 
   def initialize
@@ -12,20 +11,30 @@ class Settings
   end
 
   def get_mode(mode)
-    return @s_mode_easy if mode == "easy"
-    return @s_mode_medium if mode == "medium"
-    return @s_mode_hard if mode == "hard"
+    case mode
+      when "easy" then @s_mode_easy
+      when "medium" then @s_mode_medium
+      when "hard" then @s_mode_hard
+    end
   end
 
   def print_hello
-    puts "Приветствую! Суть игры в том, что бы отгадать слово. \n Вы можете ошибиться 6 раз. \n На каждом ходу вы должны ввести 1 русскую букву"
+    puts
+    <<~TEXT
+       Приветствую! Суть игры в том, что бы отгадать слово.
+       Вы можете ошибиться 6 раз.
+       На каждом ходу вы должны ввести 1 русскую букву
+    TEXT
   end
 
   def print_ask_complication
-    puts "Введите уровень сложности. Доступные значения: " +
-        " easy #{@s_mode_easy}," + 
-        " medium #{@s_mode_medium}," + 
-        " hard #{@s_mode_hard}"
+    puts
+    <<~TEXT
+        Введите уровень сложности. Доступные значения: 
+         easy #{@s_mode_easy},
+         medium #{@s_mode_medium},
+         hard #{@s_mode_hard}"
+    TEXT
   end
 
   def print_user_get_mistake
@@ -57,56 +66,68 @@ class Settings
   end
 
   def print_gallow(int)
-    case int
-    when 1
-      puts "  _______"
-      puts "  |     |"
-      puts "  |     O"
-      puts "  |"
-      puts "  |"
-      puts "  |"
-      puts "__|__"
-    when 2
-      puts "  _______"
-      puts "  |     |"
-      puts "  |     O"
-      puts "  |     |"
-      puts "  |"
-      puts "  |"
-      puts "__|__"
-    when 3
-      puts "  _______"
-      puts "  |     |"
-      puts "  |     O"
-      puts "  |    /|"
-      puts "  |"
-      puts "  |"
-      puts "__|__"
-    when 4
-      puts "  _______"
-      puts "  |     |"
-      puts "  |     O"
-      puts "  |    /|\\"
-      puts "  |"
-      puts "  |"
-      puts "__|__"
-    when 5
-      puts "  _______"
-      puts "  |     |"
-      puts "  |     O"
-      puts "  |    /|\\"
-      puts "  |    /"
-      puts "  |"
-      puts "__|__"
-    when 6
-      puts "  _______"
-      puts "  |     |"
-      puts "  |     O"
-      puts "  |    /|\\"
-      puts "  |    / \\"
-      puts "  |"
-      puts "__|__"
-    end
+    puts case int
+         when 1
+           <<~TEXT
+           _______
+           |     |
+           |     O
+           |
+           |
+           |
+         __|__
+        TEXT
+         when 2
+           <<~TEXT
+          _______
+          |     |
+          |     O
+          |     |
+          |
+          |
+        __|__
+        TEXT
+         when 3
+            <<~TEXT
+          _______
+          |     |
+          |     O
+          |    /|
+          |
+          |
+        __|__
+        TEXT
+         when 4
+            <<~TEXT
+          _______
+          |     |
+          |     O
+          |    /|\\
+          |
+          |
+        __|__
+        TEXT
+         when 5
+            <<~TEXT
+          _______
+          |     |
+          |     O
+          |    /|\\
+          |    /
+          |
+        __|__
+        TEXT
+         when 6
+            <<~TEXT
+            _______
+            |     |
+            |     O
+            |    /|\\
+            |    / \\
+            |
+          __|__
+           TEXT
+        end
   end
 
   def print_ask_play
