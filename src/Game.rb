@@ -28,7 +28,7 @@ class Game
 
     chose_word
     start_round while @i_mistakes > 0 && !@is_victory
-    return end_game
+    end_game
   end
 
 
@@ -86,7 +86,7 @@ class Game
 
     validate_letter(enter_letter_from_user)
 
-    return enter_letter_from_user
+    enter_letter_from_user
   end
 
 

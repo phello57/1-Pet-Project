@@ -1,5 +1,3 @@
-
-
 require '../src/Game'
 
 is_play_again = true

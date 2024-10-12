@@ -1,8 +1,6 @@
 
 
 
-
-
 class Settings
 
   def initialize
